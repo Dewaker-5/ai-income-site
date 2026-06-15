@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — AI Tools Hub</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2EQ0CN7WB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W2EQ0CN7WB');
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a2e;
+      background: #f5f6fa;
+    }
+    nav {
+      background: #0f3460;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    nav a:hover { opacity: 1; text-decoration: underline; }
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.85; }
+    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #16213e;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .tool-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .tool-card h3 { font-size: 1.1rem; color: #0f3460; margin-bottom: 0.4rem; }
+    .tool-card p { font-size: 0.9rem; color: #555; margin-bottom: 0.75rem; }
+    .tool-card a {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .tool-card a:hover { background: #d63850; }
+    .disclaimer {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #664d03;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      margin-top: 3rem;
+    }
+    footer a { color: #0f3460; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      header { padding: 2rem 1rem; }
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+  <header>
+    <h1>Resources</h1>
+    <p>Curated AI tools for productivity, automation, and development</p>
+  </header>
+  <main>
+    <div class="disclaimer">
+      Some links on this page are affiliate links. I may earn a commission at no extra cost to you.
+    </div>
+
+    <section>
+      <h2>AI Coding Agents</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <h3>OpenCode</h3>
+          <p>Open-source AI coding agent for terminal, desktop, and IDE. 160K+ GitHub stars.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+        <div class="tool-card">
+          <h3>Claude Code</h3>
+          <p>Anthropic's AI coding assistant. Great for complex reasoning and longer tasks.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+        <div class="tool-card">
+          <h3>Gemini</h3>
+          <p>Google's multimodal AI model. Free tier available with generous limits.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+        <div class="tool-card">
+          <h3>GitHub Copilot</h3>
+          <p>AI pair programmer integrated into VS Code, JetBrains, and more.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Automation & Workflow</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <h3>n8n</h3>
+          <p>Open-source workflow automation tool. Self-host or use their cloud.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+        <div class="tool-card">
+          <h3>Playwright</h3>
+          <p>Microsoft's browser automation framework. Ideal for web scraping and testing.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+        <div class="tool-card">
+          <h3>Zapier</h3>
+          <p>Connect your apps and automate workflows without code.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+        <div class="tool-card">
+          <h3>NVIDIA Build</h3>
+          <p>NVIDIA's platform for building and deploying AI models in the cloud.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>AI Tools Hub &mdash; <a href="index.html">Home</a></p>
+  </footer>
+</body>
+</html>

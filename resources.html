@@ -14,156 +14,239 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
       color: #1a1a2e;
-      background: #f5f6fa;
+      background: #f8fafc;
     }
+
     nav {
-      background: #0f3460;
-      padding: 0.75rem 1rem;
-      text-align: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15, 52, 96, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.9rem 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 2rem;
     }
     nav a {
-      color: #fff;
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
-      margin: 0 1rem;
       font-weight: 500;
-      opacity: 0.9;
+      font-size: 0.95rem;
+      transition: color 0.2s;
     }
-    nav a:hover { opacity: 1; text-decoration: underline; }
-    header {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #fff;
-      text-align: center;
-      padding: 3rem 1rem;
+    nav a:hover { color: #fff; }
+    nav a.active { color: #e94560; }
+
+    .hero {
+      margin-top: 56px;
+      position: relative;
+      min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
     }
-    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1.1rem; opacity: 0.85; }
-    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    section { margin-bottom: 2.5rem; }
-    section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #16213e;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://image.pollinations.ai/prompt/AI_tools_resource_library_hexagonal_grid_tech_blueprint?width=1400&height=400&nologo=1') center/cover no-repeat;
+      opacity: 0.2;
+      mix-blend-mode: overlay;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      text-align: center; color: #fff;
+      padding: 2.5rem 1.5rem;
+      max-width: 650px;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem; font-weight: 800; line-height: 1.15;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #fff 30%, #a78bfa 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-content p { font-size: 1.1rem; opacity: 0.85; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .section-title {
+      font-size: 1.8rem; font-weight: 700; color: #1a1a2e;
+      margin: 3rem 0 0.5rem;
+    }
+    .section-sub {
+      color: #64748b; margin-bottom: 2rem; font-size: 1.05rem;
+    }
+
+    .disclaimer {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #92400e;
+      margin-top: 2rem;
+    }
+
     .tool-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
     .tool-card {
       background: #fff;
-      border-radius: 8px;
-      padding: 1.25rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .tool-card h3 { font-size: 1.1rem; color: #0f3460; margin-bottom: 0.4rem; }
-    .tool-card p { font-size: 0.9rem; color: #555; margin-bottom: 0.75rem; }
-    .tool-card a {
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .tool-card img {
+      width: 100%; height: 160px; object-fit: cover;
+    }
+    .tool-card-body {
+      padding: 1.25rem;
+    }
+    .tool-card-body h3 {
+      font-size: 1.1rem; font-weight: 600; color: #1a1a2e;
+      margin-bottom: 0.4rem;
+    }
+    .tool-card-body p {
+      font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;
+    }
+    .tool-card-body a {
       display: inline-block;
-      background: #e94560;
+      background: #1a1a2e;
       color: #fff;
-      padding: 0.4rem 1rem;
-      border-radius: 5px;
+      padding: 0.45rem 1.2rem;
+      border-radius: 8px;
       text-decoration: none;
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
+      transition: background 0.2s;
     }
-    .tool-card a:hover { background: #d63850; }
-    .disclaimer {
-      background: #fff3cd;
-      border-left: 4px solid #ffc107;
-      padding: 1rem;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      color: #664d03;
-    }
+    .tool-card-body a:hover { background: #16213e; }
+
     footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #666;
-      font-size: 0.9rem;
-      border-top: 1px solid #ddd;
-      margin-top: 3rem;
+      text-align: center; padding: 2.5rem 1rem;
+      color: #94a3b8; font-size: 0.9rem;
     }
-    footer a { color: #0f3460; text-decoration: none; }
+    footer a { color: #6366f1; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.8rem; }
-      header { padding: 2rem 1rem; }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 1.8rem; }
       .tool-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html">Home</a>
-    <a href="resources.html">Resources</a>
+    <a href="resources.html" class="active">Resources</a>
   </nav>
-  <header>
-    <h1>Resources</h1>
-    <p>Curated AI tools for productivity, automation, and development</p>
-  </header>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Curated AI Resources</h1>
+      <p>Handpicked tools for productivity, automation, and AI-powered development</p>
+    </div>
+  </section>
+
   <main>
     <div class="disclaimer">
       Some links on this page are affiliate links. I may earn a commission at no extra cost to you.
     </div>
 
-    <section>
-      <h2>AI Coding Agents</h2>
-      <div class="tool-grid">
-        <div class="tool-card">
+    <h2 class="section-title">AI Coding Agents</h2>
+    <p class="section-sub">The best AI assistants for writing and reviewing code</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/OpenCode_AI_coding_agent_open_source_terminal_interface_dark_mode?width=400&height=240&nologo=1" alt="OpenCode" loading="lazy">
+        <div class="tool-card-body">
           <h3>OpenCode</h3>
           <p>Open-source AI coding agent for terminal, desktop, and IDE. 160K+ GitHub stars.</p>
           <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
         </div>
-        <div class="tool-card">
-          <h3>Claude Code</h3>
-          <p>Anthropic's AI coding assistant. Great for complex reasoning and longer tasks.</p>
+      </div>
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/Claude_Anthropic_AI_assistant_conversational_chatbot_purple_theme?width=400&height=240&nologo=1" alt="Claude" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Claude</h3>
+          <p>Anthropic's AI assistant for complex reasoning, coding, and analysis tasks.</p>
           <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
         </div>
-        <div class="tool-card">
+      </div>
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/Google_Gemini_AI_multimodal_model_colorful_abstract?width=400&height=240&nologo=1" alt="Gemini" loading="lazy">
+        <div class="tool-card-body">
           <h3>Gemini</h3>
-          <p>Google's multimodal AI model. Free tier available with generous limits.</p>
+          <p>Google's multimodal AI. Free tier available with generous limits and powerful capabilities.</p>
           <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
         </div>
-        <div class="tool-card">
+      </div>
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/GitHub_Copilot_AI_pair_programmer_code_editor_integration_dark_theme?width=400&height=240&nologo=1" alt="GitHub Copilot" loading="lazy">
+        <div class="tool-card-body">
           <h3>GitHub Copilot</h3>
           <p>AI pair programmer integrated into VS Code, JetBrains, and more.</p>
           <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2>Automation & Workflow</h2>
-      <div class="tool-grid">
-        <div class="tool-card">
+    <h2 class="section-title">Automation & Workflow</h2>
+    <p class="section-sub">Tools to automate repetitive tasks and streamline your processes</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/n8n_open_source_workflow_automation_node_based_visual_programming?width=400&height=240&nologo=1" alt="n8n" loading="lazy">
+        <div class="tool-card-body">
           <h3>n8n</h3>
-          <p>Open-source workflow automation tool. Self-host or use their cloud.</p>
-          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
-        </div>
-        <div class="tool-card">
-          <h3>Playwright</h3>
-          <p>Microsoft's browser automation framework. Ideal for web scraping and testing.</p>
-          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
-        </div>
-        <div class="tool-card">
-          <h3>Zapier</h3>
-          <p>Connect your apps and automate workflows without code.</p>
-          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
-        </div>
-        <div class="tool-card">
-          <h3>NVIDIA Build</h3>
-          <p>NVIDIA's platform for building and deploying AI models in the cloud.</p>
+          <p>Open-source workflow automation. Self-host or use cloud. Connect any app.</p>
           <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
         </div>
       </div>
-    </section>
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/Playwright_Microsoft_browser_automation_web_scraping_testing_framework?width=400&height=240&nologo=1" alt="Playwright" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Playwright</h3>
+          <p>Microsoft's browser automation framework for testing and web scraping.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/Zapier_automation_connect_apps_no_code_workflow_integration_platform?width=400&height=240&nologo=1" alt="Zapier" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Zapier</h3>
+          <p>Connect your apps and automate workflows without writing any code.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://image.pollinations.ai/prompt/NVIDIA_AI_build_platform_deploy_models_cloud_computing_GPU?width=400&height=240&nologo=1" alt="NVIDIA Build" loading="lazy">
+        <div class="tool-card-body">
+          <h3>NVIDIA Build</h3>
+          <p>NVIDIA's platform for building and deploying AI models at scale.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+    </div>
   </main>
+
   <footer>
-    <p>AI Tools Hub &mdash; <a href="index.html">Home</a></p>
+    <p>AI Tools Hub &mdash; <a href="index.html">Home</a> &middot; Reviews, guides, and affiliate recommendations</p>
   </footer>
 </body>
 </html>
