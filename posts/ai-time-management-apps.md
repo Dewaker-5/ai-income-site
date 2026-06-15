@@ -1,5 +1,11 @@
 ---
 layout: default
+title: "AI Time Management Apps: Revolutionizing Productivity in the Digital Age"
+date: 2026-06-15
+---
+
+---
+layout: default
 title: AI Time Management Apps: Revolutionizing Productivity in the Digital Age
 ---
 
