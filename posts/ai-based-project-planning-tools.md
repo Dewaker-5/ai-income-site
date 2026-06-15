@@ -1,5 +1,11 @@
 ---
 layout: default
+title: "AI-Based Project Planning Tools: Revolutionizing the Way We Manage Projects"
+date: 2026-06-15
+---
+
+---
+layout: default
 title: AI-Based Project Planning Tools: Revolutionizing the Way We Manage Projects
 ---
 
