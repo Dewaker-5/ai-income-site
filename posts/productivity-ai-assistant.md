@@ -1,3 +1,8 @@
+---
+layout: default
+title: Boosting Efficiency with a Productivity AI Assistant
+---
+
 # Boosting Efficiency with a Productivity AI Assistant
 The concept of artificial intelligence (AI) has been gaining traction over the years, and its applications in various fields are becoming increasingly prevalent. One such application is in the realm of productivity, where AI assistants are being utilized to streamline tasks, enhance organization, and ultimately boost overall efficiency. A productivity AI assistant is designed to learn and adapt to an individual's work habits, providing personalized support and recommendations to optimize their workflow.
 

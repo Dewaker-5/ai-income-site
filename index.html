@@ -111,7 +111,7 @@
     articles.forEach(a => {
       const li = document.createElement("li");
       const link = document.createElement("a");
-      link.href = a.file + ".md";
+      link.href = a.file + ".html";
       link.textContent = a.title;
       li.appendChild(link);
       list.appendChild(li);
