@@ -282,16 +282,16 @@
     });
 
     const articles = [
-      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools", desc: "Explore how AI is revolutionizing project management with smarter automation and predictive analytics.", img: "AI_project_management_dashboard_automation_team_collaboration" },
-      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software", desc: "Compare the top AI-powered productivity tools and find the best fit for your workflow.", img: "AI_productivity_software_comparison_dashboard_tools" },
-      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps", desc: "Take control of your schedule with AI-driven time management and smart scheduling apps.", img: "AI_time_management_app_calendar_schedule_optimization" },
-      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools", desc: "Automate repetitive tasks and reclaim hours of your day with AI task automation.", img: "AI_task_automation_workflow_robot_handling_tasks" },
-      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant", desc: "Your personal AI assistant for smarter task management, reminders, and daily planning.", img: "AI_assistant_productivity_chatbot_digital_helper" },
-      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools", desc: "Streamline your workflows with AI tools designed for maximum efficiency.", img: "AI_workflow_optimization_process_flow_chart_analytics" },
-      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools", desc: "Eliminate distractions and boost concentration with AI-powered focus tools.", img: "AI_focus_concentration_deep_work_minimalist_setup" },
-      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac", desc: "The best AI productivity apps optimized for macOS users.", img: "AI_productivity_apps_MacBook_desk_setup_sleek" },
-      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools", desc: "Plan projects faster and smarter with AI-driven project planning tools.", img: "AI_project_planning_strategy_roadmap_digital" },
-      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms", desc: "All-in-one productivity platforms powered by artificial intelligence.", img: "AI_productivity_platform_dashboard_all_in_one" },
+      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools", desc: "Explore how AI is revolutionizing project management with smarter automation and predictive analytics.", img: "Project+Management" },
+      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software", desc: "Compare the top AI-powered productivity tools and find the best fit for your workflow.", img: "Productivity+Software" },
+      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps", desc: "Take control of your schedule with AI-driven time management and smart scheduling apps.", img: "Time+Management" },
+      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools", desc: "Automate repetitive tasks and reclaim hours of your day with AI task automation.", img: "Task+Automation" },
+      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant", desc: "Your personal AI assistant for smarter task management, reminders, and daily planning.", img: "AI+Assistant" },
+      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools", desc: "Streamline your workflows with AI tools designed for maximum efficiency.", img: "Workflow+Optimization" },
+      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools", desc: "Eliminate distractions and boost concentration with AI-powered focus tools.", img: "Focus+Tools" },
+      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac", desc: "The best AI productivity apps optimized for macOS users.", img: "Mac+Productivity" },
+      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools", desc: "Plan projects faster and smarter with AI-driven project planning tools.", img: "Project+Planning" },
+      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms", desc: "All-in-one productivity platforms powered by artificial intelligence.", img: "Productivity+Platforms" },
     ];
 
     const featured = articles[0];
@@ -301,7 +301,7 @@
       const card = document.createElement("div");
       card.className = "article-card";
       card.innerHTML = `
-        <img src="https://image.pollinations.ai/prompt/${encodeURIComponent(a.img)}?width=400&height=240&nologo=1" alt="${a.title}" loading="lazy">
+        <img src="https://placehold.co/400x240/1e1b4b/a78bfa?text=${a.img}" alt="${a.title}" loading="lazy">
         <div class="article-card-body">
           <h3>${a.title}</h3>
           <p>${a.desc}</p>
