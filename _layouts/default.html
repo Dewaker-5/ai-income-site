@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ site.description }}">
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0d17;
+      color: #e2e8f0;
+      line-height: 1.8;
+    }
+    nav {
+      background: rgba(11, 13, 23, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky; top: 0; z-index: 100;
+    }
+    nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-weight: 500; font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+    nav a.active { color: #8a6fe3; }
+    .article-header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      background: linear-gradient(160deg, #0b0d17 0%, #141028 40%, #1a1040 70%, #0b0d17 100%);
+    }
+    .article-header h1 {
+      font-size: 2.2rem; font-weight: 800; line-height: 1.2;
+      background: linear-gradient(135deg, #fff 30%, #a78bfa 60%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      max-width: 750px; margin: 0 auto;
+    }
+    .article-header .date {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+    .article-body {
+      max-width: 740px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 3rem;
+      font-size: 1.05rem;
+    }
+    .article-body h2 {
+      font-size: 1.5rem; font-weight: 700; color: #fff;
+      margin: 2.5rem 0 1rem;
+    }
+    .article-body h3 {
+      font-size: 1.2rem; font-weight: 600; color: #c4b5fd;
+      margin: 2rem 0 0.75rem;
+    }
+    .article-body p {
+      margin-bottom: 1.25rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .article-body a {
+      color: #a78bfa;
+      text-decoration: underline;
+    }
+    .article-body a:hover { color: #c4b5fd; }
+    .article-body strong { color: #fff; }
+    .article-body ul, .article-body ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body blockquote {
+      border-left: 3px solid #6847DA;
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+    }
+    .article-body hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 2rem 0;
+    }
+    .article-body code {
+      background: rgba(255,255,255,0.06);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #6847DA;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: #8a6fe3; }
+    footer {
+      text-align: center; padding: 2.5rem 1rem;
+      color: rgba(255,255,255,0.3); font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer a { color: #a78bfa; text-decoration: none; }
+    footer a:hover { color: #c4b5fd; }
+    @media (max-width: 768px) {
+      .article-header h1 { font-size: 1.6rem; }
+      .article-body { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/resources.html' | relative_url }}">Resources</a>
+  </nav>
+
+  <article>
+    <div class="article-header">
+      <h1>{{ page.title }}</h1>
+      {% if page.date %}
+      <div class="date">{{ page.date | date: "%B %d, %Y" }}</div>
+      {% endif %}
+    </div>
+    <div class="article-body">
+      <a href="{{ '/' | relative_url }}" class="back-link">&larr; Back to Home</a>
+      {{ content }}
+    </div>
+  </article>
+
+  <footer>
+    <p>AI Tools Hub &mdash; <a href="{{ '/resources.html' | relative_url }}">Resources</a> &middot; Affiliate links may be present</p>
+  </footer>
+</body>
+</html>
