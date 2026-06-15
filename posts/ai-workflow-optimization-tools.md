@@ -1,5 +1,11 @@
 ---
 layout: default
+title: "AI Workflow Optimization Tools: Streamlining Business Processes"
+date: 2026-06-15
+---
+
+---
+layout: default
 title: AI Workflow Optimization Tools: Streamlining Business Processes
 ---
 
