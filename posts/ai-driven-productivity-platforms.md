@@ -1,5 +1,11 @@
 ---
 layout: default
+title: "AI Driven Productivity Platforms: Revolutionizing the Way We Work"
+date: 2026-06-15
+---
+
+---
+layout: default
 title: AI Driven Productivity Platforms: Revolutionizing the Way We Work
 ---
 
