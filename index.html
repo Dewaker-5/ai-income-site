@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Tools Hub</title>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2EQ0CN7WB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,44 +12,42 @@
     gtag('config', 'G-W2EQ0CN7WB');
   </script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.6;
       color: #1a1a2e;
       background: #f5f6fa;
     }
+    nav {
+      background: #0f3460;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    nav a:hover { opacity: 1; text-decoration: underline; }
     header {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       color: #fff;
       text-align: center;
       padding: 3rem 1rem;
     }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.85;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .article-list h2 {
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.85; }
+    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       color: #16213e;
     }
-    .article-list ul {
-      list-style: none;
-    }
+    .article-list ul { list-style: none; }
     .article-list li {
       background: #fff;
       border-radius: 8px;
@@ -70,9 +67,36 @@
       font-size: 1.05rem;
       display: block;
     }
-    .article-list a:hover {
-      color: #e94560;
+    .article-list a:hover { color: #e94560; }
+    .signup-box {
+      background: linear-gradient(135deg, #16213e, #0f3460);
+      color: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
     }
+    .signup-box h2 { color: #fff; }
+    .signup-box p { margin-bottom: 1.25rem; opacity: 0.9; }
+    .signup-form { display: flex; gap: 0.5rem; max-width: 480px; margin: 0 auto; }
+    .signup-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .signup-form button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      background: #e94560;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .signup-form button:hover { background: #d63850; }
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -81,13 +105,20 @@
       border-top: 1px solid #ddd;
       margin-top: 3rem;
     }
+    footer a { color: #0f3460; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
     @media (max-width: 600px) {
       header h1 { font-size: 1.8rem; }
       header { padding: 2rem 1rem; }
+      .signup-form { flex-direction: column; }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resources.html">Resources</a>
+  </nav>
   <header>
     <h1>AI Tools Hub</h1>
     <p>Reviews, guides, and insights on the best AI productivity tools</p>
@@ -95,8 +126,15 @@
   <main>
     <section class="article-list">
       <h2>Latest Articles</h2>
-      <ul id="article-list">
-      </ul>
+      <ul id="article-list"></ul>
+    </section>
+    <section class="signup-box">
+      <h2>Stay Updated</h2>
+      <p>Get free AI tools, prompts and automation workflows straight to your inbox.</p>
+      <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
     </section>
   </main>
   <footer>
