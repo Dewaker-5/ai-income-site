@@ -1,5 +1,11 @@
 ---
 layout: default
+title: "AI Focus Enhancing Tools: Revolutionizing Productivity and Concentration"
+date: 2026-06-15
+---
+
+---
+layout: default
 title: AI Focus Enhancing Tools: Revolutionizing Productivity and Concentration
 ---
 
