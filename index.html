@@ -11,200 +11,189 @@
     gtag('js', new Date());
     gtag('config', 'G-W2EQ0CN7WB');
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0d17;
+      color: #e2e8f0;
       line-height: 1.7;
-      color: #1a1a2e;
-      background: #f8fafc;
     }
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(15, 52, 96, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 0.9rem 2rem;
-      display: flex; align-items: center; justify-content: center; gap: 2rem;
+      background: rgba(11, 13, 23, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     nav a {
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.6);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
+      font-weight: 500; font-size: 0.9rem;
+      letter-spacing: 0.3px;
       transition: color 0.2s;
     }
     nav a:hover { color: #fff; }
-    nav a.active { color: #e94560; }
+    nav a.active { color: #8a6fe3; }
 
     .hero {
-      margin-top: 56px;
-      position: relative;
-      min-height: 420px;
+      margin-top: 57px;
+      min-height: 520px;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #0b0d17 0%, #141028 40%, #1a1040 70%, #0b0d17 100%);
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138, 111, 227, 0.15) 0%, transparent 70%);
+      top: -200px; right: -200px;
     }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: url('https://placehold.co/1400x600/302b63/fff?text=AI+Tools+Hub') center/cover no-repeat;
-      opacity: 0.25;
-      mix-blend-mode: overlay;
+    .hero-glow-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49, 144, 254, 0.1) 0%, transparent 70%);
+      bottom: -200px; left: -150px;
     }
     .hero-content {
       position: relative; z-index: 1;
-      text-align: center; color: #fff;
-      padding: 3rem 1.5rem;
-      max-width: 700px;
+      text-align: center; padding: 4rem 1.5rem;
+      max-width: 720px;
     }
-    .hero-content h1 {
-      font-size: 3rem; font-weight: 800; line-height: 1.15;
+    .hero-badge {
+      display: inline-block;
+      background: rgba(138, 111, 227, 0.12);
+      border: 1px solid rgba(138, 111, 227, 0.25);
+      color: #a78bfa;
+      padding: 0.35rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.8px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 900; line-height: 1.1;
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, #fff 30%, #a78bfa 80%);
+      background: linear-gradient(135deg, #fff 30%, #a78bfa 60%, #60a5fa 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .hero-content p {
-      font-size: 1.2rem; opacity: 0.85; margin-bottom: 1.5rem;
+    .hero p {
+      font-size: 1.15rem; color: rgba(255,255,255,0.55);
+      max-width: 560px; margin: 0 auto 2rem;
     }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(233, 69, 96, 0.2);
-      border: 1px solid rgba(233, 69, 96, 0.4);
-      color: #fca5a5;
-      padding: 0.3rem 1rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.5rem;
+    .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, #6847DA, #8a6fe3);
+      color: #fff; padding: 0.8rem 2rem;
+      border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      transition: opacity 0.2s; border: none; cursor: pointer;
     }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.8); padding: 0.8rem 2rem;
+      border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
 
     main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
-    .section-title {
-      font-size: 1.8rem; font-weight: 700; color: #1a1a2e;
-      margin: 3rem 0 0.5rem;
+    .section-header {
+      text-align: center; margin: 4rem 0 2.5rem;
     }
-    .section-sub {
-      color: #64748b; margin-bottom: 2rem; font-size: 1.05rem;
+    .section-header h2 {
+      font-size: 2rem; font-weight: 800; color: #fff;
+      margin-bottom: 0.5rem;
     }
-
-    .featured-article {
-      background: linear-gradient(135deg, #1e1b4b, #312e81);
-      border-radius: 16px;
-      overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1fr;
-      margin-bottom: 3rem;
-      box-shadow: 0 20px 60px rgba(30, 27, 75, 0.25);
-    }
-    .featured-article img {
-      width: 100%; height: 100%; object-fit: cover; min-height: 280px;
-    }
-    .featured-content {
-      padding: 2.5rem; display: flex; flex-direction: column; justify-content: center;
-    }
-    .featured-content .tag {
-      color: #a78bfa; font-weight: 600; font-size: 0.8rem;
-      letter-spacing: 1px; margin-bottom: 0.75rem;
-    }
-    .featured-content h2 {
-      color: #fff; font-size: 1.6rem; font-weight: 700;
-      margin-bottom: 0.75rem; line-height: 1.3;
-    }
-    .featured-content p {
-      color: rgba(255,255,255,0.7); font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-    .featured-content a {
-      background: #e94560; color: #fff; padding: 0.6rem 1.5rem;
-      border-radius: 8px; text-decoration: none; font-weight: 600;
-      align-self: flex-start; font-size: 0.9rem;
-      transition: background 0.2s;
-    }
-    .featured-content a:hover { background: #d63850; }
+    .section-header p { color: rgba(255,255,255,0.4); font-size: 1rem; }
 
     .article-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem; margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
     }
     .article-card {
-      background: #fff;
-      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      transition: transform 0.25s, box-shadow 0.25s;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     }
     .article-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border-color: rgba(138, 111, 227, 0.2);
     }
     .article-card img {
       width: 100%; height: 180px; object-fit: cover;
-      border-bottom: 1px solid #f1f5f9;
     }
-    .article-card-body {
-      padding: 1.25rem;
-    }
+    .article-card-body { padding: 1.5rem; }
     .article-card-body h3 {
-      font-size: 1.05rem; font-weight: 600; color: #1a1a2e;
+      font-size: 1.05rem; font-weight: 600; color: #fff;
       margin-bottom: 0.5rem; line-height: 1.4;
     }
     .article-card-body p {
-      font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;
+      font-size: 0.85rem; color: rgba(255,255,255,0.4);
+      margin-bottom: 1.25rem;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .article-card-body a {
-      color: #e94560; font-weight: 600; font-size: 0.85rem;
+      color: #a78bfa; font-weight: 600; font-size: 0.85rem;
       text-decoration: none;
     }
-    .article-card-body a:hover { text-decoration: underline; }
+    .article-card-body a:hover { color: #c4b5fd; }
 
     .signup-box {
-      background: linear-gradient(135deg, #1e1b4b, #312e81);
-      border-radius: 16px;
-      padding: 3rem 2.5rem;
+      background: linear-gradient(135deg, rgba(138,111,227,0.06), rgba(49,144,254,0.06));
+      border: 1px solid rgba(138,111,227,0.15);
+      border-radius: 20px;
+      padding: 3.5rem 2.5rem;
       text-align: center;
-      margin-bottom: 3rem;
-      box-shadow: 0 10px 40px rgba(30, 27, 75, 0.2);
+      margin-bottom: 4rem;
     }
-    .signup-box h2 { color: #fff; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .signup-box p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .signup-box h2 { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .signup-box p { color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
     .signup-form {
-      display: flex; gap: 0.6rem; max-width: 480px; margin: 0 auto;
+      display: flex; gap: 0.6rem; max-width: 440px; margin: 0 auto;
     }
     .signup-form input {
       flex: 1; padding: 0.85rem 1.25rem; border: none; border-radius: 10px;
-      font-size: 1rem; outline: none;
+      font-size: 0.95rem; background: rgba(255,255,255,0.08); color: #fff;
+      outline: 1px solid rgba(255,255,255,0.1);
     }
+    .signup-form input::placeholder { color: rgba(255,255,255,0.3); }
     .signup-form button {
       padding: 0.85rem 1.8rem; border: none; border-radius: 10px;
-      background: #e94560; color: #fff; font-size: 1rem; font-weight: 600;
-      cursor: pointer; white-space: nowrap;
-      transition: background 0.2s;
+      background: linear-gradient(135deg, #6847DA, #8a6fe3); color: #fff;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      white-space: nowrap; transition: opacity 0.2s;
     }
-    .signup-form button:hover { background: #d63850; }
+    .signup-form button:hover { opacity: 0.9; }
 
     footer {
       text-align: center; padding: 2.5rem 1rem;
-      color: #94a3b8; font-size: 0.9rem;
+      color: rgba(255,255,255,0.3); font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-    footer a { color: #6366f1; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    footer a { color: #a78bfa; text-decoration: none; }
+    footer a:hover { color: #c4b5fd; }
 
     @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2rem; }
-      .hero-content p { font-size: 1rem; }
-      .featured-article { grid-template-columns: 1fr; }
-      .featured-article img { min-height: 200px; }
+      .hero h1 { font-size: 2rem; }
+      .hero { min-height: 400px; }
       .signup-form { flex-direction: column; }
-      .section-title { font-size: 1.5rem; }
+      .article-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -215,36 +204,30 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
     <div class="hero-content">
       <div class="hero-badge">AI TOOLS & REVIEWS</div>
       <h1>AI Tools Hub</h1>
-      <p>In-depth reviews, guides, and insights on the best AI productivity tools — tested and curated for you.</p>
+      <p>In-depth reviews, guides, and comparisons of the best AI productivity tools — tested and curated for you.</p>
+      <div class="hero-actions">
+        <a href="#articles" class="btn-primary">Explore Articles</a>
+        <a href="resources.html" class="btn-secondary">View Resources</a>
+      </div>
     </div>
   </section>
 
   <main>
-    <h2 class="section-title">Featured Article</h2>
-    <p class="section-sub">Our latest deep dive into AI-powered productivity</p>
-
-    <div class="featured-article" id="featured">
-      <img src="https://placehold.co/600x400/312e81/a78bfa?text=Featured+Article" alt="AI Project Management">
-      <div class="featured-content">
-        <div class="tag">FEATURED</div>
-        <h2>AI Project Management Tools: Revolutionizing the Way We Work</h2>
-        <p>Discover how AI-powered project management tools are transforming team collaboration, task automation, and workflow efficiency.</p>
-        <a href="posts/ai-project-management-tools.html">Read Article</a>
-      </div>
+    <div class="section-header" id="articles">
+      <h2>Latest Articles</h2>
+      <p>Hand-picked insights on AI productivity and automation</p>
     </div>
-
-    <h2 class="section-title">All Articles</h2>
-    <p class="section-sub">Browse our collection of AI tool reviews and guides</p>
 
     <div class="article-grid" id="article-grid"></div>
 
     <div class="signup-box">
       <h2>Stay Ahead with AI</h2>
-      <p>Get free AI tools, prompts and automation workflows straight to your inbox. No spam, ever.</p>
+      <p>Get free AI tools, prompts and workflow tips straight to your inbox.</p>
       <form class="signup-form" id="subscribe-form">
         <input type="email" id="sub-email" placeholder="Your email address" required>
         <button type="submit">Subscribe</button>
@@ -253,7 +236,7 @@
   </main>
 
   <footer>
-    <p>AI Tools Hub &mdash; Reviews, guides, and affiliate recommendations</p>
+    <p>AI Tools Hub &mdash; <a href="resources.html">Resources</a> &middot; Affiliate links may be present</p>
   </footer>
 
   <script>
@@ -270,7 +253,7 @@
           body: JSON.stringify({ email }),
         });
         if (res.ok) {
-          this.innerHTML = '<p style="color:#fff;font-weight:600;font-size:1.1rem;">Thanks! You\'re subscribed.</p>';
+          this.innerHTML = '<p style="color:#a78bfa;font-weight:600;font-size:1.05rem;">Thanks! You\'re subscribed.</p>';
         } else {
           btn.textContent = orig;
           alert("Something went wrong. Please try again.");
@@ -282,26 +265,24 @@
     });
 
     const articles = [
-      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools", desc: "Explore how AI is revolutionizing project management with smarter automation and predictive analytics.", img: "Project+Management" },
-      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software", desc: "Compare the top AI-powered productivity tools and find the best fit for your workflow.", img: "Productivity+Software" },
-      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps", desc: "Take control of your schedule with AI-driven time management and smart scheduling apps.", img: "Time+Management" },
-      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools", desc: "Automate repetitive tasks and reclaim hours of your day with AI task automation.", img: "Task+Automation" },
-      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant", desc: "Your personal AI assistant for smarter task management, reminders, and daily planning.", img: "AI+Assistant" },
-      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools", desc: "Streamline your workflows with AI tools designed for maximum efficiency.", img: "Workflow+Optimization" },
-      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools", desc: "Eliminate distractions and boost concentration with AI-powered focus tools.", img: "Focus+Tools" },
-      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac", desc: "The best AI productivity apps optimized for macOS users.", img: "Mac+Productivity" },
-      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools", desc: "Plan projects faster and smarter with AI-driven project planning tools.", img: "Project+Planning" },
-      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms", desc: "All-in-one productivity platforms powered by artificial intelligence.", img: "Productivity+Platforms" },
+      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools", desc: "Exploring AI-powered tools transforming project management and team collaboration.", img: "placehold.co/400x240/1a1040/a78bfa?text=Project+Management" },
+      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software", desc: "A curated comparison of the most effective AI productivity software on the market.", img: "placehold.co/400x240/1a1040/a78bfa?text=Productivity+Software" },
+      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps", desc: "How AI-driven scheduling and time tracking apps help you reclaim your day.", img: "placehold.co/400x240/1a1040/a78bfa?text=Time+Management" },
+      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools", desc: "Automate repetitive tasks and streamline your workflow with intelligent AI agents.", img: "placehold.co/400x240/1a1040/a78bfa?text=Task+Automation" },
+      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant", desc: "Your personal AI sidekick for task management, reminders, and daily planning.", img: "placehold.co/400x240/1a1040/a78bfa?text=AI+Assistant" },
+      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools", desc: "Optimize your workflows with AI tools built for maximum efficiency and speed.", img: "placehold.co/400x240/1a1040/a78bfa?text=Workflow+Optimization" },
+      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools", desc: "Deep focus tools powered by AI to eliminate distractions and boost concentration.", img: "placehold.co/400x240/1a1040/a78bfa?text=Focus+Tools" },
+      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac", desc: "The best AI productivity applications optimized for the macOS ecosystem.", img: "placehold.co/400x240/1a1040/a78bfa?text=Mac+Productivity" },
+      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools", desc: "Plan smarter, not harder — AI-driven tools for project roadmapping and strategy.", img: "placehold.co/400x240/1a1040/a78bfa?text=Project+Planning" },
+      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms", desc: "All-in-one productivity platforms powered by artificial intelligence and machine learning.", img: "placehold.co/400x240/1a1040/a78bfa?text=Productivity+Platforms" },
     ];
 
-    const featured = articles[0];
     const grid = document.getElementById("article-grid");
-
-    articles.slice(1).forEach(a => {
+    articles.forEach(a => {
       const card = document.createElement("div");
       card.className = "article-card";
       card.innerHTML = `
-        <img src="https://placehold.co/400x240/1e1b4b/a78bfa?text=${a.img}" alt="${a.title}" loading="lazy">
+        <img src="https://${a.img}" alt="${a.title}" loading="lazy">
         <div class="article-card-body">
           <h3>${a.title}</h3>
           <p>${a.desc}</p>

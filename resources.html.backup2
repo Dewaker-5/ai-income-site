@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — AI Tools Hub</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2EQ0CN7WB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W2EQ0CN7WB');
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      color: #1a1a2e;
+      background: #f8fafc;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15, 52, 96, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.9rem 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 2rem;
+    }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+    nav a.active { color: #e94560; }
+
+    .hero {
+      margin-top: 56px;
+      position: relative;
+      min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://placehold.co/1400x400/302b63/fff?text=AI+Resources') center/cover no-repeat;
+      opacity: 0.2;
+      mix-blend-mode: overlay;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      text-align: center; color: #fff;
+      padding: 2.5rem 1.5rem;
+      max-width: 650px;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem; font-weight: 800; line-height: 1.15;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #fff 30%, #a78bfa 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-content p { font-size: 1.1rem; opacity: 0.85; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .section-title {
+      font-size: 1.8rem; font-weight: 700; color: #1a1a2e;
+      margin: 3rem 0 0.5rem;
+    }
+    .section-sub {
+      color: #64748b; margin-bottom: 2rem; font-size: 1.05rem;
+    }
+
+    .disclaimer {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #92400e;
+      margin-top: 2rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .tool-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .tool-card img {
+      width: 100%; height: 160px; object-fit: cover;
+    }
+    .tool-card-body {
+      padding: 1.25rem;
+    }
+    .tool-card-body h3 {
+      font-size: 1.1rem; font-weight: 600; color: #1a1a2e;
+      margin-bottom: 0.4rem;
+    }
+    .tool-card-body p {
+      font-size: 0.88rem; color: #64748b; margin-bottom: 1rem;
+    }
+    .tool-card-body a {
+      display: inline-block;
+      background: #1a1a2e;
+      color: #fff;
+      padding: 0.45rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .tool-card-body a:hover { background: #16213e; }
+
+    footer {
+      text-align: center; padding: 2.5rem 1rem;
+      color: #94a3b8; font-size: 0.9rem;
+    }
+    footer a { color: #6366f1; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 1.8rem; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="resources.html" class="active">Resources</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Curated AI Resources</h1>
+      <p>Handpicked tools for productivity, automation, and AI-powered development</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="disclaimer">
+      Some links on this page are affiliate links. I may earn a commission at no extra cost to you.
+    </div>
+
+    <h2 class="section-title">AI Coding Agents</h2>
+    <p class="section-sub">The best AI assistants for writing and reviewing code</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/1e1b4b/a78bfa?text=OpenCode" alt="OpenCode" loading="lazy">
+        <div class="tool-card-body">
+          <h3>OpenCode</h3>
+          <p>Open-source AI coding agent for terminal, desktop, and IDE. 160K+ GitHub stars.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/312e81/a78bfa?text=Claude" alt="Claude" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Claude</h3>
+          <p>Anthropic's AI assistant for complex reasoning, coding, and analysis tasks.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/0f3460/e94560?text=Gemini" alt="Gemini" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Gemini</h3>
+          <p>Google's multimodal AI. Free tier available with generous limits and powerful capabilities.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/1a1a2e/e94560?text=Copilot" alt="GitHub Copilot" loading="lazy">
+        <div class="tool-card-body">
+          <h3>GitHub Copilot</h3>
+          <p>AI pair programmer integrated into VS Code, JetBrains, and more.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Automation & Workflow</h2>
+    <p class="section-sub">Tools to automate repetitive tasks and streamline your processes</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/16213e/e94560?text=n8n" alt="n8n" loading="lazy">
+        <div class="tool-card-body">
+          <h3>n8n</h3>
+          <p>Open-source workflow automation. Self-host or use cloud. Connect any app.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/24243e/a78bfa?text=Playwright" alt="Playwright" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Playwright</h3>
+          <p>Microsoft's browser automation framework for testing and web scraping.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/302b63/a78bfa?text=Zapier" alt="Zapier" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Zapier</h3>
+          <p>Connect your apps and automate workflows without writing any code.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+      <div class="tool-card">
+        <img src="https://placehold.co/400x240/1e1b4b/a78bfa?text=NVIDIA+Build" alt="NVIDIA Build" loading="lazy">
+        <div class="tool-card-body">
+          <h3>NVIDIA Build</h3>
+          <p>NVIDIA's platform for building and deploying AI models at scale.</p>
+          <a href="[AFFILIATE_LINK]" target="_blank" rel="noopener">Visit Site</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>AI Tools Hub &mdash; <a href="index.html">Home</a> &middot; Reviews, guides, and affiliate recommendations</p>
+  </footer>
+</body>
+</html>
