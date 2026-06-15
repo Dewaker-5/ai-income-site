@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a2e;
+      background: #f5f6fa;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .article-list h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #16213e;
+    }
+    .article-list ul {
+      list-style: none;
+    }
+    .article-list li {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .article-list li:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+    .article-list a {
+      text-decoration: none;
+      color: #0f3460;
+      font-weight: 500;
+      font-size: 1.05rem;
+      display: block;
+    }
+    .article-list a:hover {
+      color: #e94560;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      margin-top: 3rem;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      header { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI Tools Hub</h1>
+    <p>Reviews, guides, and insights on the best AI productivity tools</p>
+  </header>
+  <main>
+    <section class="article-list">
+      <h2>Latest Articles</h2>
+      <ul id="article-list">
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>AI Tools Hub &mdash; Affiliate links may be present</p>
+  </footer>
+  <script>
+    const articles = [
+      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools" },
+      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software" },
+      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps" },
+      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools" },
+      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant" },
+      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools" },
+      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools" },
+      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac" },
+      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools" },
+      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms" },
+    ];
+    const list = document.getElementById("article-list");
+    articles.forEach(a => {
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = a.file + ".md";
+      link.textContent = a.title;
+      li.appendChild(link);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>
