@@ -131,8 +131,8 @@
     <section class="signup-box">
       <h2>Stay Updated</h2>
       <p>Get free AI tools, prompts and automation workflows straight to your inbox.</p>
-      <form class="signup-form" action="https://formspree.io/f/mrevjkor" method="POST">
-        <input type="email" name="email" placeholder="Your email address" required>
+      <form class="signup-form" id="subscribe-form">
+        <input type="email" id="sub-email" placeholder="Your email address" required>
         <button type="submit">Subscribe</button>
       </form>
     </section>
@@ -141,6 +141,28 @@
     <p>AI Tools Hub &mdash; Affiliate links may be present</p>
   </footer>
   <script>
+    document.getElementById("subscribe-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = document.getElementById("sub-email").value;
+      const btn = this.querySelector("button");
+      btn.textContent = "Subscribing...";
+      try {
+        const res = await fetch("https://formspree.io/f/mrevjkor", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        if (res.ok) {
+          this.innerHTML = '<p style="color:#fff;font-weight:600;">Thanks! You\'re subscribed.</p>';
+        } else {
+          btn.textContent = "Try Again";
+          alert("Something went wrong. Please try again.");
+        }
+      } catch {
+        btn.textContent = "Try Again";
+        alert("Network error. Please try again.");
+      }
+    });
     const articles = [
       { title: "AI Project Management Tools", file: "posts/ai-project-management-tools" },
       { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software" },
