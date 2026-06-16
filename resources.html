@@ -12,113 +12,144 @@
     gtag('config', 'G-W2EQ0CN7WB');
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #090a10;
+      --surface: #11131f;
+      --border: rgba(255,255,255,0.06);
+      --text: #e8eaed;
+      --text-secondary: #9aa0a6;
+      --accent: #7c6ff0;
+      --gradient-1: linear-gradient(135deg, #7c6ff0, #5b8def);
+      --gradient-2: linear-gradient(160deg, #0a0b16 0%, #11131f 50%, #1a1633 100%);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b0d17;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(11, 13, 23, 0.85);
-      backdrop-filter: blur(16px);
-      padding: 1rem 2rem;
+      background: rgba(9, 10, 16, 0.82);
+      backdrop-filter: blur(18px) saturate(1.4);
+      padding: 0 2rem;
+      height: 60px;
       display: flex; align-items: center; justify-content: center; gap: 2.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
     }
     nav a {
-      color: rgba(255,255,255,0.6);
+      color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500; font-size: 0.9rem;
-      letter-spacing: 0.3px;
-      transition: color 0.2s;
+      font-weight: 500; font-size: 0.875rem;
+      letter-spacing: 0.01em;
+      transition: color 0.25s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; border-radius: 2px;
+      background: var(--gradient-1);
+      opacity: 0; transform: scaleX(0);
+      transition: opacity 0.3s, transform 0.3s;
     }
     nav a:hover { color: #fff; }
-    nav a.active { color: #8a6fe3; }
+    nav a.active { color: #fff; }
+    nav a.active::after, nav a:hover::after { opacity: 1; transform: scaleX(1); }
 
     .hero {
-      margin-top: 57px;
-      min-height: 320px;
+      margin-top: 60px;
+      min-height: 300px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
-      background: linear-gradient(160deg, #0b0d17 0%, #141028 40%, #1a1040 70%, #0b0d17 100%);
+      background: var(--gradient-2);
     }
-    .hero-glow {
-      position: absolute;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(138, 111, 227, 0.12) 0%, transparent 70%);
-      top: -150px; left: -100px;
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 30% 50%, rgba(124,111,240,0.08) 0%, transparent 50%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 60px 60px;
     }
     .hero-content {
       position: relative; z-index: 1;
       text-align: center; padding: 3rem 1.5rem;
-      max-width: 650px;
+      max-width: 600px;
     }
     .hero h1 {
-      font-size: 2.5rem; font-weight: 900;
-      margin-bottom: 0.75rem;
-      background: linear-gradient(135deg, #fff 30%, #a78bfa 60%);
+      font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 30%, #b8aeff 70%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 0.5rem;
     }
-    .hero p { color: rgba(255,255,255,0.5); font-size: 1.05rem; }
+    .hero p { color: var(--text-secondary); font-size: 1rem; }
 
-    main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    main { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
     .notice {
-      background: rgba(138, 111, 227, 0.06);
-      border: 1px solid rgba(138, 111, 227, 0.15);
-      border-left: 3px solid #6847DA;
-      padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      background: rgba(124, 111, 240, 0.05);
+      border: 1px solid rgba(124, 111, 240, 0.12);
+      padding: 0.9rem 1.25rem;
       border-radius: 10px;
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-secondary);
       margin-top: 2.5rem;
     }
 
     .section-header {
-      margin: 3.5rem 0 2rem;
+      margin: 3.5rem 0 1.5rem;
     }
     .section-header h2 {
-      font-size: 1.6rem; font-weight: 700; color: #fff;
-      margin-bottom: 0.3rem;
+      font-size: 1.5rem; font-weight: 700; color: #fff;
+      letter-spacing: -0.02em;
     }
-    .section-header p { color: rgba(255,255,255,0.4); font-size: 0.95rem; }
+    .section-header p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.2rem; }
 
     .tool-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
     }
     .tool-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.35s ease,
+                  border-color 0.35s ease;
     }
     .tool-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      border-color: rgba(138, 111, 227, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      border-color: rgba(124, 111, 240, 0.15);
     }
     .tool-card img {
-      width: 100%; height: 160px; object-fit: cover;
+      width: 100%; height: 150px; object-fit: cover;
+      display: block;
     }
-    .tool-card-body { padding: 1.5rem; }
-    .tool-card-body h3 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
-    .tool-card-body p { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.1rem; }
+    .tool-card-body { padding: 1.25rem; }
+    .tool-card-body h3 { font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 0.3rem; }
+    .tool-card-body p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.1rem; }
     .tool-card-body a {
       display: inline-block;
-      background: linear-gradient(135deg, #6847DA, #8a6fe3);
-      color: #fff; padding: 0.5rem 1.25rem;
+      background: var(--gradient-1);
+      color: #fff; padding: 0.45rem 1.25rem;
       border-radius: 8px; text-decoration: none;
       font-size: 0.85rem; font-weight: 600;
       transition: opacity 0.2s;
@@ -127,14 +158,15 @@
 
     footer {
       text-align: center; padding: 2.5rem 1rem;
-      color: rgba(255,255,255,0.3); font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.25); font-size: 0.85rem;
+      border-top: 1px solid var(--border);
     }
-    footer a { color: #a78bfa; text-decoration: none; }
-    footer a:hover { color: #c4b5fd; }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { color: #b8aeff; }
 
     @media (max-width: 768px) {
       .hero h1 { font-size: 1.8rem; }
+      .hero { min-height: 240px; }
       .tool-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -146,7 +178,7 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
     <div class="hero-content">
       <h1>Curated AI Resources</h1>
       <p>Handpicked tools for productivity, automation, and AI-powered development</p>
@@ -154,7 +186,9 @@
   </section>
 
   <main>
-    <div class="notice">Some links on this page are affiliate links. I may earn a commission at no extra cost to you.</div>
+    <div class="notice">
+      <span>Some links on this page are affiliate links. I may earn a commission at no extra cost to you.</span>
+    </div>
 
     <div class="section-header">
       <h2>AI Coding Agents</h2>
@@ -163,7 +197,7 @@
 
     <div class="tool-grid">
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=OpenCode" alt="OpenCode" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=OpenCode" alt="OpenCode" loading="lazy">
         <div class="tool-card-body">
           <h3>OpenCode</h3>
           <p>Open-source AI coding agent for terminal, desktop, and IDE. 160K+ GitHub stars.</p>
@@ -171,7 +205,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=Claude" alt="Claude" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=Claude" alt="Claude" loading="lazy">
         <div class="tool-card-body">
           <h3>Claude</h3>
           <p>Anthropic's AI assistant for complex reasoning, coding, and analysis tasks.</p>
@@ -179,7 +213,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=Gemini" alt="Gemini" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=Gemini" alt="Gemini" loading="lazy">
         <div class="tool-card-body">
           <h3>Gemini</h3>
           <p>Google's multimodal AI model with a free tier available and powerful capabilities.</p>
@@ -187,7 +221,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=Copilot" alt="GitHub Copilot" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=Copilot" alt="GitHub Copilot" loading="lazy">
         <div class="tool-card-body">
           <h3>GitHub Copilot</h3>
           <p>AI pair programmer integrated into VS Code, JetBrains, and more.</p>
@@ -203,7 +237,7 @@
 
     <div class="tool-grid">
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=n8n" alt="n8n" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=n8n" alt="n8n" loading="lazy">
         <div class="tool-card-body">
           <h3>n8n</h3>
           <p>Open-source workflow automation. Self-host or use cloud. Connect any app.</p>
@@ -211,7 +245,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=Playwright" alt="Playwright" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=Playwright" alt="Playwright" loading="lazy">
         <div class="tool-card-body">
           <h3>Playwright</h3>
           <p>Microsoft's browser automation framework for testing and scraping.</p>
@@ -219,7 +253,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=Zapier" alt="Zapier" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=Zapier" alt="Zapier" loading="lazy">
         <div class="tool-card-body">
           <h3>Zapier</h3>
           <p>Connect your apps and automate workflows without writing any code.</p>
@@ -227,7 +261,7 @@
         </div>
       </div>
       <div class="tool-card">
-        <img src="https://placehold.co/400x240/1a1040/a78bfa?text=NVIDIA+Build" alt="NVIDIA Build" loading="lazy">
+        <img src="https://placehold.co/400x200/11131f/7c6ff0?text=NVIDIA+Build" alt="NVIDIA Build" loading="lazy">
         <div class="tool-card-body">
           <h3>NVIDIA Build</h3>
           <p>NVIDIA's platform for building and deploying AI models at scale.</p>

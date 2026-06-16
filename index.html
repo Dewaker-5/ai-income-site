@@ -12,131 +12,181 @@
     gtag('config', 'G-W2EQ0CN7WB');
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #090a10;
+      --surface: #11131f;
+      --surface-hover: #181b2b;
+      --border: rgba(255,255,255,0.06);
+      --text: #e8eaed;
+      --text-secondary: #9aa0a6;
+      --accent: #7c6ff0;
+      --accent-glow: rgba(124, 111, 240, 0.3);
+      --gradient-1: linear-gradient(135deg, #7c6ff0, #5b8def);
+      --gradient-2: linear-gradient(160deg, #0a0b16 0%, #11131f 50%, #1a1633 100%);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0b0d17;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ---- Nav ---- */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(11, 13, 23, 0.85);
-      backdrop-filter: blur(16px);
-      padding: 1rem 2rem;
+      background: rgba(9, 10, 16, 0.82);
+      backdrop-filter: blur(18px) saturate(1.4);
+      padding: 0 2rem;
+      height: 60px;
       display: flex; align-items: center; justify-content: center; gap: 2.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
     }
     nav a {
-      color: rgba(255,255,255,0.6);
+      color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 500; font-size: 0.9rem;
-      letter-spacing: 0.3px;
-      transition: color 0.2s;
+      font-weight: 500; font-size: 0.875rem;
+      letter-spacing: 0.01em;
+      transition: color 0.25s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; border-radius: 2px;
+      background: var(--gradient-1);
+      opacity: 0; transform: scaleX(0);
+      transition: opacity 0.3s, transform 0.3s;
     }
     nav a:hover { color: #fff; }
-    nav a.active { color: #8a6fe3; }
+    nav a.active { color: #fff; }
+    nav a.active::after, nav a:hover::after { opacity: 1; transform: scaleX(1); }
 
+    /* ---- Hero ---- */
     .hero {
-      margin-top: 57px;
+      margin-top: 60px;
       min-height: 520px;
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
-      background: linear-gradient(160deg, #0b0d17 0%, #141028 40%, #1a1040 70%, #0b0d17 100%);
+      background: var(--gradient-2);
     }
-    .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(138, 111, 227, 0.15) 0%, transparent 70%);
-      top: -200px; right: -200px;
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(124,111,240,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(91,141,239,0.06) 0%, transparent 50%);
     }
-    .hero-glow-2 {
-      position: absolute;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(49, 144, 254, 0.1) 0%, transparent 70%);
-      bottom: -200px; left: -150px;
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
     }
     .hero-content {
       position: relative; z-index: 1;
       text-align: center; padding: 4rem 1.5rem;
-      max-width: 720px;
+      max-width: 680px;
     }
     .hero-badge {
-      display: inline-block;
-      background: rgba(138, 111, 227, 0.12);
-      border: 1px solid rgba(138, 111, 227, 0.25);
-      color: #a78bfa;
-      padding: 0.35rem 1.1rem;
-      border-radius: 50px;
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.8px;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(124, 111, 240, 0.1);
+      border: 1px solid rgba(124, 111, 240, 0.2);
+      color: var(--accent);
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.05em;
       margin-bottom: 1.5rem;
     }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     .hero h1 {
-      font-size: 3.2rem; font-weight: 900; line-height: 1.1;
+      font-size: 3.5rem; font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, #fff 30%, #a78bfa 60%, #60a5fa 80%);
+      background: linear-gradient(135deg, #fff 20%, #b8aeff 50%, #8baff8 75%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .hero p {
-      font-size: 1.15rem; color: rgba(255,255,255,0.55);
-      max-width: 560px; margin: 0 auto 2rem;
+      font-size: 1.1rem; color: var(--text-secondary);
+      max-width: 520px; margin: 0 auto 2.2rem;
     }
     .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
-      background: linear-gradient(135deg, #6847DA, #8a6fe3);
+      background: var(--gradient-1);
       color: #fff; padding: 0.8rem 2rem;
-      border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      transition: opacity 0.2s; border: none; cursor: pointer;
+      border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      transition: opacity 0.2s, transform 0.15s; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(124, 111, 240, 0.25);
     }
-    .btn-primary:hover { opacity: 0.9; }
+    .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-secondary {
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.8); padding: 0.8rem 2rem;
-      border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: background 0.2s;
+      background: rgba(255,255,255,0.04);
+      color: var(--text); padding: 0.8rem 2rem;
+      border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      border: 1px solid var(--border);
+      transition: background 0.2s, border-color 0.2s;
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
 
-    main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    /* ---- Main ---- */
+    main { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
     .section-header {
-      text-align: center; margin: 4rem 0 2.5rem;
+      text-align: center; margin: 4.5rem 0 2.5rem;
     }
     .section-header h2 {
-      font-size: 2rem; font-weight: 800; color: #fff;
-      margin-bottom: 0.5rem;
+      font-size: 2rem; font-weight: 700; color: #fff;
+      margin-bottom: 0.4rem; letter-spacing: -0.02em;
     }
-    .section-header p { color: rgba(255,255,255,0.4); font-size: 1rem; }
+    .section-header p { color: var(--text-secondary); font-size: 1rem; }
 
+    /* ---- Article Cards ---- */
     .article-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.25rem;
       margin-bottom: 4rem;
     }
     .article-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.35s ease,
+                  border-color 0.35s ease;
+      position: relative;
+    }
+    .article-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 14px;
+      padding: 1px;
+      background: linear-gradient(135deg, transparent 40%, rgba(124,111,240,0.15), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
     }
     .article-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      border-color: rgba(138, 111, 227, 0.2);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+      border-color: rgba(124, 111, 240, 0.15);
     }
+    .article-card:hover::before { opacity: 1; }
     .article-card img {
       width: 100%; height: 180px; object-fit: cover;
+      display: block;
     }
     .article-card-body { padding: 1.5rem; }
     .article-card-body h3 {
@@ -144,56 +194,85 @@
       margin-bottom: 0.5rem; line-height: 1.4;
     }
     .article-card-body p {
-      font-size: 0.85rem; color: rgba(255,255,255,0.4);
-      margin-bottom: 1.25rem;
+      font-size: 0.85rem; color: var(--text-secondary);
+      margin-bottom: 1.2rem;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .article-card-body a {
-      color: #a78bfa; font-weight: 600; font-size: 0.85rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--accent); font-weight: 600; font-size: 0.85rem;
       text-decoration: none;
+      transition: gap 0.2s;
     }
-    .article-card-body a:hover { color: #c4b5fd; }
+    .article-card-body a::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+    .article-card-body a:hover { gap: 0.6rem; }
+    .article-card-body a:hover::after { transform: translateX(2px); }
 
+    /* ---- Newsletter ---- */
     .signup-box {
-      background: linear-gradient(135deg, rgba(138,111,227,0.06), rgba(49,144,254,0.06));
-      border: 1px solid rgba(138,111,227,0.15);
-      border-radius: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
       padding: 3.5rem 2.5rem;
       text-align: center;
       margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
     }
-    .signup-box h2 { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
-    .signup-box p { color: rgba(255,255,255,0.45); margin-bottom: 1.5rem; }
+    .signup-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .signup-box h2 { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .signup-box p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
     .signup-form {
       display: flex; gap: 0.6rem; max-width: 440px; margin: 0 auto;
     }
     .signup-form input {
       flex: 1; padding: 0.85rem 1.25rem; border: none; border-radius: 10px;
-      font-size: 0.95rem; background: rgba(255,255,255,0.08); color: #fff;
-      outline: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.95rem; background: rgba(255,255,255,0.05); color: #fff;
+      outline: 1px solid var(--border);
+      font-family: inherit;
+      transition: outline-color 0.2s;
     }
-    .signup-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .signup-form input:focus { outline-color: var(--accent); }
+    .signup-form input::placeholder { color: var(--text-secondary); }
     .signup-form button {
       padding: 0.85rem 1.8rem; border: none; border-radius: 10px;
-      background: linear-gradient(135deg, #6847DA, #8a6fe3); color: #fff;
-      font-size: 0.95rem; font-weight: 600; cursor: pointer;
-      white-space: nowrap; transition: opacity 0.2s;
+      background: var(--gradient-1); color: #fff;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: opacity 0.2s;
     }
     .signup-form button:hover { opacity: 0.9; }
 
+    /* ---- Footer ---- */
     footer {
       text-align: center; padding: 2.5rem 1rem;
-      color: rgba(255,255,255,0.3); font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.25); font-size: 0.85rem;
+      border-top: 1px solid var(--border);
     }
-    footer a { color: #a78bfa; text-decoration: none; }
-    footer a:hover { color: #c4b5fd; }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { color: #b8aeff; }
 
+    /* ---- Responsive ---- */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .hero { min-height: 400px; }
-      .signup-form { flex-direction: column; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero { min-height: 420px; }
+      .hero-content { padding: 3rem 1.25rem; }
       .article-grid { grid-template-columns: 1fr; }
+      .signup-form { flex-direction: column; }
+      .signup-box { padding: 2.5rem 1.5rem; }
+      .section-header h2 { font-size: 1.6rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+      nav { gap: 1.5rem; padding: 0 1rem; }
     }
   </style>
 </head>
@@ -204,12 +283,11 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-glow-2"></div>
+    <div class="hero-grid"></div>
     <div class="hero-content">
-      <div class="hero-badge">AI TOOLS & REVIEWS</div>
+      <div class="hero-badge"><span></span> AI TOOLS & REVIEWS</div>
       <h1>AI Tools Hub</h1>
-      <p>In-depth reviews, guides, and comparisons of the best AI productivity tools — tested and curated for you.</p>
+      <p>In-depth reviews, comparisons, and guides to the best AI productivity tools — tested and curated for you.</p>
       <div class="hero-actions">
         <a href="#articles" class="btn-primary">Explore Articles</a>
         <a href="resources.html" class="btn-secondary">View Resources</a>
@@ -227,7 +305,7 @@
 
     <div class="signup-box">
       <h2>Stay Ahead with AI</h2>
-      <p>Get free AI tools, prompts and workflow tips straight to your inbox.</p>
+      <p>Get free AI tools, prompts and workflow tips straight to your inbox. No spam, ever.</p>
       <form class="signup-form" id="subscribe-form">
         <input type="email" id="sub-email" placeholder="Your email address" required>
         <button type="submit">Subscribe</button>
@@ -253,7 +331,7 @@
           body: JSON.stringify({ email }),
         });
         if (res.ok) {
-          this.innerHTML = '<p style="color:#a78bfa;font-weight:600;font-size:1.05rem;">Thanks! You\'re subscribed.</p>';
+          this.innerHTML = '<p style="color:var(--accent);font-weight:600;font-size:1.05rem;">Thanks! You\'re subscribed.</p>';
         } else {
           btn.textContent = orig;
           alert("Something went wrong. Please try again.");
@@ -265,16 +343,16 @@
     });
 
     const articles = [
-      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools", desc: "Exploring AI-powered tools transforming project management and team collaboration.", img: "placehold.co/400x240/1a1040/a78bfa?text=Project+Management" },
-      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software", desc: "A curated comparison of the most effective AI productivity software on the market.", img: "placehold.co/400x240/1a1040/a78bfa?text=Productivity+Software" },
-      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps", desc: "How AI-driven scheduling and time tracking apps help you reclaim your day.", img: "placehold.co/400x240/1a1040/a78bfa?text=Time+Management" },
-      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools", desc: "Automate repetitive tasks and streamline your workflow with intelligent AI agents.", img: "placehold.co/400x240/1a1040/a78bfa?text=Task+Automation" },
-      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant", desc: "Your personal AI sidekick for task management, reminders, and daily planning.", img: "placehold.co/400x240/1a1040/a78bfa?text=AI+Assistant" },
-      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools", desc: "Optimize your workflows with AI tools built for maximum efficiency and speed.", img: "placehold.co/400x240/1a1040/a78bfa?text=Workflow+Optimization" },
-      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools", desc: "Deep focus tools powered by AI to eliminate distractions and boost concentration.", img: "placehold.co/400x240/1a1040/a78bfa?text=Focus+Tools" },
-      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac", desc: "The best AI productivity applications optimized for the macOS ecosystem.", img: "placehold.co/400x240/1a1040/a78bfa?text=Mac+Productivity" },
-      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools", desc: "Plan smarter, not harder — AI-driven tools for project roadmapping and strategy.", img: "placehold.co/400x240/1a1040/a78bfa?text=Project+Planning" },
-      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms", desc: "All-in-one productivity platforms powered by artificial intelligence and machine learning.", img: "placehold.co/400x240/1a1040/a78bfa?text=Productivity+Platforms" },
+      { title: "AI Project Management Tools", file: "posts/ai-project-management-tools", desc: "Exploring AI-powered tools transforming project management and team collaboration.", img: "placehold.co/400x240/11131f/7c6ff0?text=Project+Management" },
+      { title: "Best AI Productivity Software", file: "posts/best-ai-productivity-software", desc: "A curated comparison of the most effective AI productivity software on the market.", img: "placehold.co/400x240/11131f/7c6ff0?text=Productivity+Software" },
+      { title: "AI Time Management Apps", file: "posts/ai-time-management-apps", desc: "How AI-driven scheduling and time tracking apps help you reclaim your day.", img: "placehold.co/400x240/11131f/7c6ff0?text=Time+Management" },
+      { title: "AI Task Automation Tools", file: "posts/ai-task-automation-tools", desc: "Automate repetitive tasks and streamline your workflow with intelligent AI agents.", img: "placehold.co/400x240/11131f/7c6ff0?text=Task+Automation" },
+      { title: "Productivity AI Assistant", file: "posts/productivity-ai-assistant", desc: "Your personal AI sidekick for task management, reminders, and daily planning.", img: "placehold.co/400x240/11131f/7c6ff0?text=AI+Assistant" },
+      { title: "AI Workflow Optimization Tools", file: "posts/ai-workflow-optimization-tools", desc: "Optimize your workflows with AI tools built for maximum efficiency and speed.", img: "placehold.co/400x240/11131f/7c6ff0?text=Workflow+Optimization" },
+      { title: "AI Focus Enhancing Tools", file: "posts/ai-focus-enhancing-tools", desc: "Deep focus tools powered by AI to eliminate distractions and boost concentration.", img: "placehold.co/400x240/11131f/7c6ff0?text=Focus+Tools" },
+      { title: "AI Productivity Apps for Mac", file: "posts/ai-productivity-apps-for-mac", desc: "The best AI productivity applications optimized for the macOS ecosystem.", img: "placehold.co/400x240/11131f/7c6ff0?text=Mac+Productivity" },
+      { title: "AI Based Project Planning Tools", file: "posts/ai-based-project-planning-tools", desc: "Plan smarter, not harder — AI-driven tools for project roadmapping and strategy.", img: "placehold.co/400x240/11131f/7c6ff0?text=Project+Planning" },
+      { title: "AI Driven Productivity Platforms", file: "posts/ai-driven-productivity-platforms", desc: "All-in-one productivity platforms powered by artificial intelligence.", img: "placehold.co/400x240/11131f/7c6ff0?text=Productivity+Platforms" },
     ];
 
     const grid = document.getElementById("article-grid");
