@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "AI Productivity Apps for Mac: Boosting Efficiency and Streamlining Tasks"
-date: 2026-06-15
+date: 2026-06-17
 ---
 
 # AI Productivity Apps for Mac: Boosting Efficiency and Streamlining Tasks
