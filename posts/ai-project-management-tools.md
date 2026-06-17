@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "AI Project Management Tools: Revolutionizing the Way We Work"
-date: 2026-06-15
+date: 2026-06-17
 ---
 
 # AI Project Management Tools: Revolutionizing the Way We Work
