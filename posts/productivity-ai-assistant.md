@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Boosting Efficiency with a Productivity AI Assistant"
-date: 2026-06-15
+date: 2026-06-17
 ---
 
 # Boosting Efficiency with a Productivity AI Assistant
